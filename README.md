@@ -10,7 +10,7 @@
 
 <table>
     <tr>
-        <td align="center">
+        <td style="text-align: center; vertical-align: middle;">
             <a href="https://github.com/ezxd1148">
                 <sub>
                     <b> Afdhal Saufi </b>
@@ -18,7 +18,7 @@
             </a><br />
             Role: Not Available
         </td>
-        <td align="center">
+        <td style="text-align: center; vertical-align: middle;">
             <a href="https://github.com/ezxd1148">
                 <sub>
                     <b> Julita </b>
@@ -26,7 +26,7 @@
             </a><br />
             Role: Not Available
         </td>
-        <td align="center">
+        <td style="text-align: center; vertical-align: middle;">
             <a href="https://github.com/ezxd1148">
                 <sub>
                     <b> Ili </b>
