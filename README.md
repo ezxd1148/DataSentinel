@@ -1,5 +1,8 @@
 # DataSentinel
 
+Checklist and Planning:
+[Checklist](CHECKLIST.md)
+
 For information gathering:
 [Team Note](TEAM_NOTE.md)
 
