@@ -16,7 +16,7 @@
                     <b> Afdhal Saufi </b>
                 <sub>
             </a><br />
-            Role: Team Leader & Coordinator
+            Role: Not Available
         </td>
         <td align="center">
             <a href="https://github.com/ezxd1148">
@@ -24,7 +24,7 @@
                     <b> Julita </b>
                 <sub>
             </a><br />
-            Role: Team Leader & Coordinator
+            Role: Not Available
         </td>
         <td align="center">
             <a href="https://github.com/ezxd1148">
@@ -32,7 +32,7 @@
                     <b> Ili </b>
                 <sub>
             </a><br />
-            Role: Team Leader & Coordinator
+            Role: Not Available
         </td>
     </tr>
 </table>
