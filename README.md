@@ -11,11 +11,28 @@
 <table>
     <tr>
         <td align="center">
-            <a href="https://github.com/ili">
+            <a href="https://github.com/ezxd1148">
                 <sub>
                     <b> Afdhal Saufi </b>
                 <sub>
             </a><br />
+            Role: Team Leader & Coordinator
+        </td>
+        <td align="center">
+            <a href="https://github.com/ezxd1148">
+                <sub>
+                    <b> Julita </b>
+                <sub>
+            </a><br />
+            Role: Team Leader & Coordinator
+        </td>
+        <td align="center">
+            <a href="https://github.com/ezxd1148">
+                <sub>
+                    <b> Ili </b>
+                <sub>
+            </a><br />
+            Role: Team Leader & Coordinator
         </td>
     </tr>
 </table>
