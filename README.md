@@ -1,5 +1,8 @@
 # DataSentinel
 
+For information gathering:
+[Team Note](TEAM_NOTE.md)
+
 Simple Description:
 
     - Include team members
