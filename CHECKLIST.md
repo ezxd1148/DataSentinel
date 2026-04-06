@@ -1,8 +1,121 @@
-# DataSentinel - Checklist
+# DataSentinel — Project Checklist
 
-Phase 1 - Planning
+> Legend: 👨‍💻 Requires coding skill · 📋 Requires documentation/research skill · ⚙️ Requires automation/no-code skill
 
-- [ ] Complete 5W1H in README.md (07/04)
-- [ ] Finish Input & Output section in TEAM_NOTE.md (07/04)
+---
 
-Phase 2 - Programming
+## Phase 1 — Planning
+- [ ] Complete 5W1H in `README.md` · 📋 **Kak Ju** · _07/04_
+- [ ] Finish Input & Output section in `TEAM_NOTE.md` · 📋 **Kak Ju** · _07/04_
+- [ ] Define and document data schema + data dictionary for both datasets · 📋 **Kak Ju** · _07/04_
+- [ ] Set up GitHub repo structure (folders: `/data`, `/models`, `/api`, `/dashboard`, `/n8n`, `/docs`) · 👨‍💻 **ezXD** · _07/04_
+- [ ] Create `requirements.txt` with all dependencies · 👨‍💻 **ezXD** · _07/04_
+- [ ] Write system architecture diagram and commit to `/docs` · 📋 **Kak Ju** · _08/04_
+
+---
+
+## Phase 2 — Data & Feature Engineering
+- [X] Download and verify RetailRocket dataset from Kaggle · 👨‍💻 **ezXD** · _08/04_
+- [ ] Load both datasets into DuckDB · 👨‍💻 **ezXD** · _08/04_
+- [ ] Clean and preprocess RetailRocket (handle nulls, parse timestamps, filter noise) · 👨‍💻 **ezXD** · _08/04_
+- [ ] Engineer session-level features (browse-to-cart ratio, session velocity, recency, frequency, time since last click) · 👨‍💻 **ezXD** · _08/04_
+- [ ] Engineer bridge feature: map `abandonment_rate` → `estimated_revenue_loss` · 👨‍💻 **ezXD** · _09/04_
+- [ ] Preprocess teammate's transaction data (date parsing, cost/revenue columns, monthly aggregation) · 👨‍💻 **ezXD** · _09/04_
+- [ ] Commit data pipeline script to `/data` · 👨‍💻 **ezXD** · _09/04_
+
+---
+
+## Phase 3 — ML Models
+### Model A — Abandonment Predictor
+- [ ] Split RetailRocket data into train/test sets · 👨‍💻 **ezXD** · _09/04_
+- [ ] Train XGBoost classifier on session features · 👨‍💻 **ezXD** · _09/04_
+- [ ] Evaluate with AUC-ROC and precision-recall curve · 👨‍💻 **ezXD** · _09/04_
+- [ ] Integrate SHAP TreeExplainer (top 3 reasons per prediction) · 👨‍💻 **ezXD** · _10/04_
+- [ ] Save trained model as `.pkl` or `.ubj` to `/models` · 👨‍💻 **ezXD** · _10/04_
+- [ ] Document model parameters and validation metrics in `TEAM_NOTE.md` · 📋 **Kak Ju** · _10/04_
+
+### Model B — Product Recommender
+- [ ] Build user-item interaction matrix from RetailRocket purchase events · 👨‍💻 **ezXD** · _10/04_
+- [ ] Train SVD model using scikit-surprise · 👨‍💻 **ezXD** · _10/04_
+- [ ] Evaluate with RMSE on held-out test split · 👨‍💻 **ezXD** · _10/04_
+- [ ] Implement risk-adjusted recommendation logic (high-risk users → lower-friction products) · 👨‍💻 **ezXD** · _10/04_
+- [ ] Save model to `/models` · 👨‍💻 **ezXD** · _10/04_
+
+### Model C — Cash Flow Forecaster
+- [ ] Prepare Prophet-compatible dataframe (`ds`, `y` columns) from transaction data · 👨‍💻 **ezXD** · _11/04_
+- [ ] Train Prophet model, tune seasonality settings · 👨‍💻 **ezXD** · _11/04_
+- [ ] Generate 30/60/90-day projections (baseline vs. intervention scenario) · 👨‍💻 **ezXD** · _11/04_
+- [ ] Evaluate with MAE and MAPE on historical holdout · 👨‍💻 **ezXD** · _11/04_
+- [ ] Save forecast output as CSV to `/data` · 👨‍💻 **ezXD** · _11/04_
+
+---
+
+## Phase 4 — Backend API
+- [ ] Initialise FastAPI project structure in `/api` · 👨‍💻 **ezXD** · _11/04_
+- [ ] Implement `POST /predict/abandonment` endpoint (returns score + SHAP values) · 👨‍💻 **ezXD** · _11/04_
+- [ ] Implement `GET /recommend/{user_id}` endpoint · 👨‍💻 **ezXD** · _12/04_
+- [ ] Implement `GET /cashflow/forecast` endpoint · 👨‍💻 **ezXD** · _12/04_
+- [ ] Implement `POST /insight` endpoint (sends context to LLM, returns plain-English output) · 👨‍💻 **ezXD / Kak Ili** · _12/04_
+- [ ] Add error handling and logging to all endpoints · 👨‍💻 **ezXD** · _12/04_
+- [ ] Test all endpoints locally with sample payloads · 👨‍💻 **ezXD** · _12/04_
+- [ ] Write API endpoint documentation in `README.md` · 📋 **Kak Ju** · _12/04_
+
+---
+
+## Phase 5 — LLM Integration
+- [ ] Set up `.env` file with API key (Anthropic or OpenAI) · 👨‍💻 **Kak Ili** · _12/04_
+- [ ] Write prompt template that injects abandonment score, SHAP reasons, and cash flow delta · 👨‍💻 **Kak Ili** · _12/04_
+- [ ] Implement LLM API call in Python and parse response · 👨‍💻 **Kak Ili** · _12/04_
+- [ ] Test prompt outputs and refine for clarity and accuracy · 👨‍💻 **Kak Ili** · _13/04_
+- [ ] Connect LLM module to `POST /insight` endpoint · 👨‍💻 **ezXD / Kak Ili** · _13/04_
+
+---
+
+## Phase 6 — Automation (n8n)
+- [ ] Set up n8n locally or via n8n Cloud · ⚙️ **Kak Ju** · _12/04_
+- [ ] Build Workflow 1: Scheduled trigger → `GET /cashflow/forecast` → email alert if revenue drops below threshold · ⚙️ **Kak Ju** · _13/04_
+- [ ] Build Workflow 2: Webhook trigger → simulates cart abandonment event → `POST /predict/abandonment` → logs result · ⚙️ **Kak Ju** · _13/04_
+- [ ] Export both workflows as `.json` and commit to `/n8n` · ⚙️ **Kak Ju** · _13/04_
+- [ ] Document both workflows in `TEAM_NOTE.md` (what triggers what, expected output) · 📋 **Kak Ju** · _13/04_
+
+---
+
+## Phase 7 — Frontend Dashboard
+- [ ] Initialise Streamlit project in `/dashboard` · 👨‍💻 **Kak Ili** · _11/04_
+- [ ] Build Tab 1: Behavior — session risk scores, SHAP explanation per user · 👨‍💻 **Kak Ili** · _12/04_
+- [ ] Build Tab 2: Recommendations — product cards ranked by conversion likelihood · 👨‍💻 **Kak Ili** · _12/04_
+- [ ] Build Tab 3: Cash Flow — 30/60/90-day forecast chart, baseline vs. intervention · 👨‍💻 **Kak Ili** · _13/04_
+- [ ] Build Tab 4: AI Insights — LLM-generated plain-English summary and actions · 👨‍💻 **Kak Ili** · _13/04_
+- [ ] Connect all tabs to live FastAPI endpoints · 👨‍💻 **Kak Ili** · _13/04_
+- [ ] Test dashboard responsiveness and response times · 👨‍💻 **Kak Ili** · _13/04_
+
+---
+
+## Phase 8 — Integration & Testing
+- [ ] Full end-to-end test: data in → model → API → dashboard · 👨‍💻 **ezXD** · _14/04_
+- [ ] Verify n8n workflows trigger correctly against live API · ⚙️ **Kak Ju** · _14/04_
+- [ ] Fix bugs from integration test · 👨‍💻 **ezXD / Kak Ili** · _14/04_
+- [ ] Add logging to track model performance in production · 👨‍💻 **ezXD** · _14/04_
+- [ ] Confirm all endpoints return correct responses under edge cases · 👨‍💻 **ezXD** · _14/04_
+
+---
+
+## Phase 9 — Documentation & Submission Prep
+- [ ] Write final `README.md` (setup guide, how to run, architecture overview) · 📋 **Kak Ju** · _15/04_
+- [ ] Write `docs/market_analysis.md` (target audience, cost-benefit, scalability) · 📋 **Kak Ju** · _15/04_
+- [ ] Write `docs/ethics.md` (data privacy, bias considerations, fair use) · 📋 **Kak Ju** · _15/04_
+- [ ] Write `docs/team_division.md` (who did what, commit breakdown) · 📋 **Kak Ju** · _15/04_
+- [ ] Verify Git commit history shows parallel work across all members · 👨‍💻 **ezXD** · _15/04_
+- [ ] Review codebase for license compliance (no proprietary dependencies) · 👨‍💻 **ezXD** · _15/04_
+- [ ] Record demo video (scripted: user browses → risk climbs → recommender shifts → cash flow updates → LLM insight fires) · 👨‍💻 **All** · _15/04_
+- [ ] Final submission package review · 👨‍💻 **ezXD** · _16/04_ _(buffer)_
+
+---
+
+## Member Skill Summary
+
+| Member | Skill Profile | Owns |
+|---|---|---|
+| ezXD (you) | Python, ML, backend, architecture | Phases 2, 3, 4, 8 core tasks |
+| Kak Ili | Simple Python, some automation | Phases 5, 6 LLM, 7 frontend |
+| Kak Ju | No-code, n8n, documentation | Phase 6 automation, all docs |

@@ -37,7 +37,7 @@
     </tr>
 </table>
 
-## What
+## What 
 
 // Explain what is our product
 // What does it do
