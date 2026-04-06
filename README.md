@@ -8,6 +8,18 @@
 > For information gathering:
 > [Team Note](TEAM_NOTE.md)
 
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/ili">
+                <sub>
+                    <b> Afdhal Saufi </b>
+                <sub>
+            </a><br />
+        </td>
+    </tr>
+</table>
+
 ## What
 
 // Explain what is our product
