@@ -1,15 +1,12 @@
-# DataSentinel
+# DataSentinelAI
 
-Checklist and Planning:
-[Checklist](CHECKLIST.md)
-
-For information gathering:
-[Team Note](TEAM_NOTE.md)
-
-Simple Description:
-
-    - Include team members
-    - Each member's tasks
+> For team members
+>
+> Checklist and Planning:
+> [Checklist](CHECKLIST.md)
+>
+> For information gathering:
+> [Team Note](TEAM_NOTE.md)
 
 ## What
 
