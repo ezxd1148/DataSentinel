@@ -1,3 +1,5 @@
 /src/data/
 
+.env
+
 MODELS_DOCUMENTATION.md
