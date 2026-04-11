@@ -3,3 +3,13 @@
 .env
 
 MODELS_DOCUMENTATION.md
+
+ignore_file/
+
+# Python / tooling noise
+__pycache__/
+*.py[cod]
+.vs/
+
+# Local Streamlit secrets (use .streamlit/secrets.toml only on your machine)
+.streamlit/secrets.toml

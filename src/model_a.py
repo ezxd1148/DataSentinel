@@ -18,6 +18,7 @@ RetailRocket dataset:
 import os
 import pickle
 import warnings
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import xgboost as xgb
@@ -37,18 +38,19 @@ from sklearn.preprocessing import LabelEncoder
 warnings.filterwarnings("ignore")
 
 # ─────────────────────────────────────────────
-# CONFIG
+# CONFIG (paths relative to this package so API cwd does not matter)
 # ─────────────────────────────────────────────
-DATA_PATH   = "./data/events.csv"
-MODEL_PATH  = "./models/model_a.pkl"
-FEAT_PATH   = "./models/model_a_features.pkl"
-OUTPUT_DIR  = "./outputs"
+SRC_DIR = Path(__file__).resolve().parent
+DATA_PATH = SRC_DIR / "data" / "events.csv"
+MODEL_PATH = SRC_DIR / "models" / "model_a.pkl"
+FEAT_PATH = SRC_DIR / "models" / "model_a_features.pkl"
+OUTPUT_DIR = SRC_DIR / "outputs"
 SAMPLE_SIZE = 500_000   # rows to load (None = full dataset, reduce if RAM limited)
 TEST_SIZE   = 0.2
 RANDOM_SEED = 42
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-os.makedirs("./models", exist_ok=True)
+os.makedirs(MODEL_PATH.parent, exist_ok=True)
 
 
 # ─────────────────────────────────────────────
@@ -359,7 +361,7 @@ if __name__ == "__main__":
         print(f"\n  ERROR: {DATA_PATH} not found.")
         print("  Download events.csv from:")
         print("  https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset")
-        print("  Then place it in ./data/events.csv\n")
+        print(f"  Then place it in {DATA_PATH}\n")
         exit(1)
 
     # ── Run pipeline ──
