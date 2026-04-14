@@ -16,7 +16,7 @@
                     <b> Afdhal Saufi </b>
                 <sub>
             </a><br />
-            Role: Not Available
+            Role: Team Leader
         </td>
         <td style="text-align: center; vertical-align: middle;">
             <a href="https://github.com/ezxd1148">
@@ -24,7 +24,7 @@
                     <b> Julita </b>
                 <sub>
             </a><br />
-            Role: Not Available
+            Role: Developer
         </td>
         <td style="text-align: center; vertical-align: middle;">
             <a href="https://github.com/ezxd1148">
@@ -32,7 +32,7 @@
                     <b> Ili </b>
                 <sub>
             </a><br />
-            Role: Not Available
+            Role: Researcher
         </td>
     </tr>
 </table>
