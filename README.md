@@ -74,9 +74,12 @@ DataSentinel is built for **real-time and ongoing** use, daily decision-making a
 ## Getting Started
 
 ```bash
-git clone https://github.com/your-username/datasentinel.git
-cd datasentinel
-pip install -r requirements.txt
+git clone https://github.com/ezxd1148/DataSentinel
+cd DataSentinel
+uv init
+uv venv
+source .venv/Bin/Activate
+uv add -r requirements.txt
 uvicorn api.main:app --reload
 ```
 
