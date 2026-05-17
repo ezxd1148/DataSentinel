@@ -1,6 +1,9 @@
 /src/data/
 
 .env
+.venv/
+.streamlit/
+BACKUP/
 
 MODELS_DOCUMENTATION.md
 
